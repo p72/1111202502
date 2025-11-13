@@ -2,7 +2,7 @@
 
 ## 概要
 
-このプロジェクトは、日本銀行が公表する企業物価指数（円ベース）のうち、**輸出物価指数**と**輸入物価指数**について統計分析とデータ可視化を行い、プレゼン資料を作成したものです。
+このプロジェクトは、日本銀行が公表する企業物価指数（円ベース）のうち、**輸出物価指数**と**輸入物価指数**について統計分析とデータ可視化を行い、さらに**交易条件（Terms of Trade）**の詳細分析を実施したものです。
 
 ## データソース
 
@@ -16,20 +16,32 @@
 
 ### データファイル
 - `企業物価指数円ベースpr01_m_1.csv` - 元データ（Shift-JISエンコーディング）
-- `summary_statistics.csv` - 統計サマリー
+- `summary_statistics.csv` - 物価指数の統計サマリー
+- `terms_of_trade_summary.csv` - 交易条件の時期別統計
+- `recent_terms_of_trade.csv` - 直近24ヶ月の交易条件データ
 
 ### スクリプト
 - `analyze_price_index.py` - データ読み込みと基本統計分析
-- `create_visualizations.py` - グラフ作成とデータ可視化
+- `create_visualizations.py` - 物価指数のグラフ作成とデータ可視化
+- `analyze_terms_of_trade.py` - 交易条件の計算と分析
 
-### プレゼン資料
-- `presentation.md` - Markdown形式の総合プレゼン資料
+### 分析レポート・プレゼン資料
+- `presentation.md` - 輸出入物価指数のプレゼン資料
+- `terms_of_trade_analysis.md` - 交易条件の詳細分析レポート（45年の長期分析）
 
 ### 可視化ファイル（PNG形式）
+
+#### 物価指数関連
 1. `price_index_trends.png` - 輸出入物価指数の推移（全期間）
 2. `price_yoy_trends.png` - 前年比変動率の推移（全期間）
 3. `recent_price_trends.png` - 近年の動向（2015年以降）
 4. `price_spread.png` - 輸出入物価指数のスプレッド
+
+#### 交易条件関連
+5. `terms_of_trade_long_term.png` - 交易条件の長期推移（1980-2025）
+6. `terms_of_trade_yoy.png` - 交易条件の前年比変化
+7. `terms_of_trade_recent.png` - 近年の交易条件（2015年以降）
+8. `terms_of_trade_distribution.png` - 交易条件の分布と10年移動平均
 
 ## 主要な分析結果
 
@@ -43,10 +55,28 @@
 - 標準偏差: **15.6%**
 - 2025年10月: **159.7**（前年比-1.5%）
 
+### 交易条件（Terms of Trade）
+- **定義**: 輸出物価指数 ÷ 輸入物価指数 × 100
+- **全期間平均**: 119.74（1980-2025年）
+- **史上最高値**: 176.41（1986年8月）- プラザ合意後の円高
+- **史上最低値**: 69.84（2022年9月）- 円安と資源高騰
+- **2025年10月**: **88.79**（前年比+3.92%）
+- **パリティからの乖離**: -11.21ポイント
+
+### 時期別の交易条件推移
+- **1980年代**: 130.67
+- **1990年代**: 155.76（史上最も有利）
+- **2000年代**: 121.08
+- **2010年代**: 90.95（パリティ割れ）
+- **2020年代**: 86.31（さらに悪化）
+
 ### キーファインディング
 1. 輸入物価指数は輸出物価指数の約2.3倍の変動幅を持つ
 2. 輸入物価が輸出物価を上回り続けており、交易条件は厳しい状況
 3. 2022年のピーク後、2025年にかけて両指数とも調整局面に入っている
+4. **交易条件は1980年代から約34%悪化**し、構造的な課題を示している
+5. 2022年に史上最低を記録したが、2023年以降は緩やかな回復傾向
+6. 依然としてパリティ（100）を大きく下回り、実質所得への圧力が続く
 
 ## 実行方法
 
@@ -66,12 +96,16 @@ pip install pandas matplotlib numpy
 # 基本統計分析
 python analyze_price_index.py
 
-# グラフ作成
+# 物価指数のグラフ作成
 python create_visualizations.py
+
+# 交易条件の分析とグラフ作成
+python analyze_terms_of_trade.py
 ```
 
-## プレゼン資料の閲覧
+## 分析資料の閲覧
 
+### 輸出入物価指数のプレゼン資料
 `presentation.md` をMarkdownビューアーで開くか、以下のようなツールでHTML/PDFに変換できます：
 
 ```bash
@@ -80,6 +114,24 @@ python create_visualizations.py
 pandoc presentation.md -o presentation.html
 pandoc presentation.md -o presentation.pdf
 ```
+
+### 交易条件の詳細分析レポート
+`terms_of_trade_analysis.md` は45年間の交易条件を詳細に分析した包括的なレポートです：
+
+```bash
+# Markdownビューアーで開く
+# または
+pandoc terms_of_trade_analysis.md -o terms_of_trade_analysis.html
+pandoc terms_of_trade_analysis.md -o terms_of_trade_analysis.pdf
+```
+
+**主な内容:**
+- 交易条件の定義と経済的意味
+- 1980年から2025年までの長期トレンド分析
+- 時代別の特徴（1980年代～2020年代）
+- 2022年危機の詳細分析
+- 経済的インプリケーション（実質所得、物価、企業収益、家計への影響）
+- 短期・中期・長期の政策提言
 
 ## 今後の拡張可能性
 
