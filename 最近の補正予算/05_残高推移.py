@@ -26,7 +26,7 @@ ax1.annotate('Recovery\nPhase', xy=(2021, 136.5), xytext=(2021.5, 150),
 
 ax1.set_ylabel('Cumulative Amount (Trillion Yen)', fontsize=13, fontweight='bold')
 ax1.set_xlabel('Fiscal Year', fontsize=13, fontweight='bold')
-ax1.set_title('Cumulative Supplementary Budget and Execution\n累積補正予算額と執行額',
+ax1.set_title('Cumulative Supplementary Budget and Execution',
               fontsize=15, fontweight='bold', pad=20)
 ax1.legend(loc='upper left', fontsize=11)
 ax1.grid(True, alpha=0.3, linestyle='--')
@@ -47,7 +47,7 @@ ax2.axhline(y=15, color='red', linestyle='--', linewidth=2, alpha=0.6, label='Hi
 
 ax2.set_ylabel('Unexecuted Balance (Trillion Yen)', fontsize=13, fontweight='bold')
 ax2.set_xlabel('Fiscal Year', fontsize=13, fontweight='bold')
-ax2.set_title('Unexecuted Balance Trend\n未執行残高の推移',
+ax2.set_title('Unexecuted Balance Trend',
               fontsize=15, fontweight='bold', pad=20)
 ax2.legend(loc='upper left', fontsize=11)
 ax2.grid(axis='y', alpha=0.3, linestyle='--')

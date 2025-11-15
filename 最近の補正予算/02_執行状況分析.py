@@ -13,7 +13,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
 wedges, texts, autotexts = ax1.pie(amounts, labels=categories, autopct='%1.1f%%',
                                      colors=colors, startangle=90,
                                      textprops={'fontsize': 12, 'fontweight': 'bold'})
-ax1.set_title('FY2022 Supplementary Budget Execution Status\n(¥18.86T Economic Stimulus Projects)\n令和4年度補正予算執行状況',
+ax1.set_title('FY2022 Supplementary Budget Execution Status\n(¥18.86T Economic Stimulus Projects)',
               fontsize=14, fontweight='bold', pad=20)
 
 # Add amount labels
@@ -43,7 +43,7 @@ for i, (e, c) in enumerate(zip(executed_rates, carryover_rates)):
 
 ax2.set_ylabel('Percentage (%)', fontsize=13, fontweight='bold')
 ax2.set_xlabel('Fiscal Year', fontsize=13, fontweight='bold')
-ax2.set_title('Execution vs Carryover Rates Trend\n執行率と繰越率の推移',
+ax2.set_title('Execution vs Carryover Rates Trend',
               fontsize=14, fontweight='bold', pad=20)
 ax2.set_xticks(x)
 ax2.set_xticklabels(years)

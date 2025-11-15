@@ -27,7 +27,7 @@ for i, (bar, amount) in enumerate(zip(bars, amounts)):
 ax1.set_yticks(y_pos)
 ax1.set_yticklabels(categories, fontsize=11)
 ax1.set_xlabel('Amount (Trillion Yen)', fontsize=13, fontweight='bold')
-ax1.set_title('FY2024 Supplementary Budget Breakdown\n令和6年度補正予算の内訳',
+ax1.set_title('FY2024 Supplementary Budget Breakdown',
               fontsize=14, fontweight='bold', pad=20)
 ax1.grid(axis='x', alpha=0.3, linestyle='--')
 ax1.set_xlim(0, max(amounts) * 1.2)
@@ -54,7 +54,7 @@ for i, (d, color, label) in enumerate(zip(data, colors_stack, labels)):
 
 ax2.set_ylabel('Amount (Trillion Yen)', fontsize=13, fontweight='bold')
 ax2.set_xlabel('Fiscal Year', fontsize=13, fontweight='bold')
-ax2.set_title('Supplementary Budget Composition Trends\n補正予算の構成推移',
+ax2.set_title('Supplementary Budget Composition Trends',
               fontsize=14, fontweight='bold', pad=20)
 ax2.set_xticks(x)
 ax2.set_xticklabels(years)

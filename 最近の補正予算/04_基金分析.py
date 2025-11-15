@@ -24,7 +24,7 @@ wedges, texts, autotexts = ax1.pie(fund_amounts, labels=fund_names,
                                      autopct=lambda pct: f'{pct:.1f}%\n(¥{pct*sum(fund_amounts)/100:.2f}T)',
                                      colors=fund_colors, startangle=45,
                                      textprops={'fontsize': 9, 'fontweight': 'bold'})
-ax1.set_title('Major Funds Established Through Supplementary Budgets\n補正予算で設置された主要基金',
+ax1.set_title('Major Funds Established Through Supplementary Budgets',
               fontsize=14, fontweight='bold', pad=20)
 
 # Right: Fund characteristics - execution timeline
@@ -59,7 +59,7 @@ for bar, size in zip(bars2, avg_size):
 ax2.set_ylabel('Number of Funds', fontsize=13, fontweight='bold', color='#3498DB')
 ax2_twin.set_ylabel('Average Size (Trillion Yen)', fontsize=13, fontweight='bold', color='#E74C3C')
 ax2.set_xlabel('Fund Type', fontsize=13, fontweight='bold')
-ax2.set_title('Fund Characteristics by Execution Timeline\n基金の執行期間別特性',
+ax2.set_title('Fund Characteristics by Execution Timeline',
               fontsize=14, fontweight='bold', pad=20)
 ax2.set_xticks(x)
 ax2.set_xticklabels(fund_types)

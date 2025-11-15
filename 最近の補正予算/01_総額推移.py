@@ -24,7 +24,7 @@ for i, (bar, amount) in enumerate(zip(bars, amounts)):
 # Styling
 ax.set_ylabel('Amount (Trillion Yen)', fontsize=14, fontweight='bold')
 ax.set_xlabel('Fiscal Year', fontsize=14, fontweight='bold')
-ax.set_title('Supplementary Budget Trends (FY2016-2024)\n最近の補正予算の推移',
+ax.set_title('Supplementary Budget Trends (FY2016-2024)',
              fontsize=16, fontweight='bold', pad=20)
 ax.grid(axis='y', alpha=0.3, linestyle='--')
 ax.set_ylim(0, max(amounts) * 1.15)
