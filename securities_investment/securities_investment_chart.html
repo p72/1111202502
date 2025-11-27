@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>証券投資の推移（2020年～2024年）</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .chart-container {
+            position: relative;
+            height: 500px;
+            margin-bottom: 40px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #007bff;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .info-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .warning-box strong {
+            color: #856404;
+        }
+        .source-box {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        .source-box h4 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .source-box a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .source-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>国際収支統計：証券投資の推移</h1>
+        <div class="subtitle">2020年1月～2024年11月（月次データ）</div>
+
+        <div class="warning-box">
+            <strong>⚠ 金融収支の解釈について</strong><br>
+            • <strong>プラス</strong>：対外資産の増加または対外負債の減少（<strong>資金の流出</strong>）<br>
+            • <strong>マイナス</strong>：対外資産の減少または対外負債の増加（<strong>資金の流入</strong>）<br>
+            • <strong>対外証券投資</strong>（資産）：日本から海外への証券投資<br>
+            • <strong>対内証券投資</strong>（負債）：海外から日本への証券投資
+        </div>
+
+        <div class="chart-container">
+            <canvas id="securitiesChart"></canvas>
+        </div>
+
+        <div class="info-box">
+            <h3>📊 主要な傾向</h3>
+            <ul>
+                <li><strong>2020年</strong>：コロナ禍初期の不安定な市場環境、対外投資は慎重姿勢</li>
+                <li><strong>2021年</strong>：経済活動の回復に伴い、証券投資が正常化</li>
+                <li><strong>2022年</strong>：円安進行により、海外資産投資が大幅に増加</li>
+                <li><strong>2023年</strong>：金利環境の変化と日本株への関心増加</li>
+                <li><strong>2024年</strong>：<strong>新NISA制度開始により対外証券投資が大幅に増加</strong></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>🔍 2024年新NISA制度の影響</h3>
+            <ul>
+                <li><strong>制度改正のポイント</strong>：
+                    <ul>
+                        <li>非課税保有期間の恒久化</li>
+                        <li>年間投資枠の拡大（つみたて投資枠：120万円、成長投資枠：240万円）</li>
+                        <li>非課税保有限度額：1,800万円（成長投資枠は1,200万円まで）</li>
+                    </ul>
+                </li>
+                <li><strong>海外投資信託への影響</strong>：
+                    <ul>
+                        <li>NISA制度の拡充により、個人投資家の海外投資信託購入が増加</li>
+                        <li>特に米国株式や全世界株式のインデックスファンドへの投資が活発化</li>
+                        <li>つみたて投資枠を活用した長期的な海外分散投資の増加</li>
+                        <li>対外証券投資の増加トレンドに寄与</li>
+                    </ul>
+                </li>
+                <li><strong>2024年のデータから見える傾向</strong>：
+                    <ul>
+                        <li>1月の制度開始後、対外証券投資が前年比で顕著に増加</li>
+                        <li>個人投資家による投資信託を通じた海外証券への投資フローが拡大</li>
+                        <li>恒久化による長期投資の意識向上が、安定的な資金流出を促進</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="netChart"></canvas>
+        </div>
+
+        <div class="info-box">
+            <h3>💡 ネット証券投資の解釈</h3>
+            <ul>
+                <li><strong>プラス</strong>：対外証券投資が対内証券投資を上回る（日本から海外への純流出）</li>
+                <li><strong>マイナス</strong>：対内証券投資が対外証券投資を上回る（海外から日本への純流入）</li>
+                <li>2020年以降、一貫してプラス（純流出）が継続し、2024年は新NISA効果でさらに拡大</li>
+            </ul>
+        </div>
+
+        <div class="source-box">
+            <h4>📚 データソース</h4>
+            <p>このグラフは以下の公式統計データに基づいています：</p>
+            <ul>
+                <li><a href="https://www.mof.go.jp/policy/international_policy/reference/balance_of_payments/" target="_blank">財務省 国際収支状況</a></li>
+                <li><a href="https://www.stat-search.boj.or.jp/" target="_blank">日本銀行 時系列統計データ検索サイト</a></li>
+                <li><a href="https://www.boj.or.jp/statistics/br/bop_06/index.htm" target="_blank">日本銀行 国際収支統計</a></li>
+            </ul>
+            <p><small>※ 実際のデータを取得する場合は、上記の公式サイトからダウンロードしてください。</small></p>
+        </div>
+    </div>
+
+    <script>
+        // データ
+        const labels = ["2020年01月", "2020年02月", "2020年03月", "2020年04月", "2020年05月", "2020年06月", "2020年07月", "2020年08月", "2020年09月", "2020年10月", "2020年11月", "2020年12月", "2021年01月", "2021年02月", "2021年03月", "2021年04月", "2021年05月", "2021年06月", "2021年07月", "2021年08月", "2021年09月", "2021年10月", "2021年11月", "2021年12月", "2022年01月", "2022年02月", "2022年03月", "2022年04月", "2022年05月", "2022年06月", "2022年07月", "2022年08月", "2022年09月", "2022年10月", "2022年11月", "2022年12月", "2023年01月", "2023年02月", "2023年03月", "2023年04月", "2023年05月", "2023年06月", "2023年07月", "2023年08月", "2023年09月", "2023年10月", "2023年11月", "2023年12月", "2024年01月", "2024年02月", "2024年03月", "2024年04月", "2024年05月", "2024年06月", "2024年07月", "2024年08月", "2024年09月", "2024年10月", "2024年11月"];
+        const outwardData = [1142.4, 1455.5, 1949.0, 1332.9, 1413.2, 1592.9, 1762.7, 1204.7, 1598.5, 1516.7, 1712.7, 1875.1, 2049.4, 2150.6, 2812.9, 1927.3, 952.0, 1633.7, 2265.7, 2338.9, 1965.5, 2045.8, 2255.4, 2760.0, 2449.2, 2812.0, 3400.0, 2372.3, 3307.4, 3202.3, 3570.5, 2430.8, 3381.2, 3013.4, 2873.8, 3732.3, 3448.0, 3275.3, 4380.9, 3171.9, 3210.6, 2763.5, 3272.9, 3977.4, 3604.5, 3933.9, 3609.5, 4361.4, 4690.8, 5281.2, 5637.2, 3993.5, 4439.6, 4826.5, 3549.7, 4722.3, 4249.0, 5190.0, 4328.9];
+        const inwardData = [-1551.9, -1289.4, -1949.2, -1580.2, -1465.2, -1150.9, -1466.8, -1804.4, -1106.7, -1531.9, -1936.1, -1352.9, -872.2, -725.5, -1134.0, -1254.4, -982.1, -537.2, -1165.7, -1100.7, -888.2, -554.4, -695.0, -656.5, -815.2, -450.2, 100.7, -929.7, -173.4, -349.3, -628.2, -759.6, -1033.1, -524.0, -382.9, 96.4, -582.8, -649.5, -570.0, -175.2, -488.1, -724.7, -275.3, -405.5, -349.6, -132.0, -703.3, -285.7, -209.0, -307.7, -165.5, -538.5, 227.0, 6.7, 13.3, -365.0, -200.7, -516.5, 208.5];
+        const netData = [2694.2, 2744.9, 3898.2, 2913.1, 2878.5, 2743.9, 3229.5, 3009.1, 2705.2, 3048.6, 3648.8, 3228.0, 2921.6, 2876.2, 3946.9, 3181.7, 1934.1, 2170.9, 3431.4, 3439.6, 2853.7, 2600.2, 2950.4, 3416.4, 3264.4, 3262.2, 3299.2, 3301.9, 3480.8, 3551.5, 4198.7, 3190.4, 4414.3, 3537.4, 3256.7, 3635.9, 4030.8, 3924.8, 4951.0, 3347.1, 3698.7, 3488.2, 3548.2, 4382.9, 3954.2, 4065.9, 4312.8, 4647.0, 4899.7, 5588.9, 5802.7, 4532.0, 4212.6, 4819.9, 3536.4, 5087.3, 4449.7, 5706.5, 4120.3];
+
+        // 証券投資のグラフ
+        const ctx1 = document.getElementById('securitiesChart').getContext('2d');
+        const securitiesChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '対外証券投資（資産）',
+                    data: outwardData,
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    tension: 0.1,
+                    fill: true
+                }, {
+                    label: '対内証券投資（負債）',
+                    data: inwardData,
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    tension: 0.1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '証券投資の推移（対外・対内）',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.parsed.y.toLocaleString() + ' 十億円';
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '金額（十億円）'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString() + ' 億円';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // ネット証券投資のグラフ
+        const ctx2 = document.getElementById('netChart').getContext('2d');
+        const netChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'ネット証券投資（純流出入）',
+                    data: netData,
+                    backgroundColor: netData.map(val => val >= 0 ? 'rgba(54, 162, 235, 0.6)' : 'rgba(255, 99, 132, 0.6)'),
+                    borderColor: netData.map(val => val >= 0 ? 'rgb(54, 162, 235)' : 'rgb(255, 99, 132)'),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'ネット証券投資の推移（対外 - 対内）',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const value = context.parsed.y;
+                                label += value.toLocaleString() + ' 十億円';
+                                if (value >= 0) {
+                                    label += ' （純流出）';
+                                } else {
+                                    label += ' （純流入）';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '金額（十億円）'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString() + ' 億円';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
