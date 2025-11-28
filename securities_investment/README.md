@@ -6,12 +6,18 @@
 
 ```
 securities_investment/
-├── README.md                          # このファイル
-├── analysis.md                        # 詳細な分析レポート
-├── create_bop_data.py                 # データ生成スクリプト
-├── visualize_data.py                  # グラフ生成スクリプト
-├── securities_investment_data.csv     # 証券投資データ（CSV）
-└── securities_investment_chart.html   # インタラクティブグラフ（HTML）
+├── README.md                                    # このファイル
+├── PNG生成方法.md                               # PNG画像生成の詳細ガイド
+├── analysis.md                                  # 詳細な分析レポート
+├── create_bop_data.py                           # データ生成スクリプト
+├── visualize_data.py                            # Chart.jsグラフ生成スクリプト
+├── generate_svg_charts.py                       # SVGグラフ生成スクリプト
+├── generate_png_charts.py                       # matplotlibでPNG生成（ローカル環境用）
+├── svg_viewer.html                              # SVG表示＆PNG変換ビューア
+├── securities_investment_data.csv               # 証券投資データ（CSV）
+├── securities_investment_chart.html             # インタラクティブグラフ（HTML/Chart.js）
+├── securities_investment_outward_inward.svg     # 対外・対内グラフ（SVG）
+└── securities_investment_net.svg                # ネット証券投資グラフ（SVG）
 ```
 
 ## 🎯 プロジェクトの目的
@@ -76,7 +82,55 @@ open securities_investment_chart.html
 start securities_investment_chart.html
 ```
 
-### 4. 分析レポートの閲覧
+### 4. PNG画像の生成 🎨
+
+**複数の方法でPNG画像を生成できます。詳細は `PNG生成方法.md` を参照してください。**
+
+#### 方法A: SVGビューアを使用（最も簡単）
+
+```bash
+# ブラウザでSVGビューアを開く
+xdg-open svg_viewer.html  # Linux
+open svg_viewer.html      # macOS
+start svg_viewer.html     # Windows
+```
+
+各グラフの下にある「**📥 PNG形式でダウンロード**」ボタンをクリックしてPNG画像を保存できます。
+
+#### 方法B: SVGファイルを生成（既に生成済み）
+
+```bash
+python3 generate_svg_charts.py
+```
+
+生成されるファイル：
+- `securities_investment_outward_inward.svg`
+- `securities_investment_net.svg`
+
+#### 方法C: matplotlib使用（ローカル環境、最高品質）
+
+```bash
+# matplotlibをインストール
+pip install matplotlib
+
+# PNG画像を生成
+python3 generate_png_charts.py
+```
+
+生成されるファイル（4枚、300 DPI）：
+- `securities_investment_outward_inward.png` - 対外・対内証券投資
+- `securities_investment_net.png` - ネット証券投資
+- `securities_investment_yearly_average.png` - 年次平均比較
+- `securities_investment_2024_nisa_impact.png` - 2024年詳細
+
+#### 方法D: ブラウザのスクリーンショット機能
+
+1. グラフHTML/SVGビューアを開く
+2. F12で開発者ツールを開く
+3. Ctrl+Shift+P → "Capture screenshot" と入力
+4. PNG画像が自動保存されます
+
+### 5. 分析レポートの閲覧
 
 詳細な分析レポートは `analysis.md` を参照してください：
 

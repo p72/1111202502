@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+  <style>
+        .title { font: bold 24px sans-serif; }
+        .axis-label { font: bold 14px sans-serif; }
+        .tick-label { font: 12px sans-serif; }
+        .legend-text { font: 12px sans-serif; }
+        .grid { stroke: #ddd; stroke-width: 1; stroke-dasharray: 5,5; }
+        .axis { stroke: #000; stroke-width: 2; }
+        .line-outward { stroke: #4BC0C0; stroke-width: 2; fill: none; }
+        .line-inward { stroke: #FF6384; stroke-width: 2; fill: none; }
+        .bar-positive { fill: #36A2EB; opacity: 0.8; }
+        .bar-negative { fill: #FF6384; opacity: 0.8; }
+    </style>
+  <text x="700.0" y="40" text-anchor="middle" class="title">Net Securities Investment Trends (Outward - Inward)</text>
+  <text x="700.0" y="65" text-anchor="middle" class="axis-label">2020-2024</text>
+  <line x1="100" y1="700.0" x2="1300" y2="700.0" class="grid" />
+  <text x="90" y="705.0" text-anchor="end" class="tick-label">0</text>
+  <line x1="100" y1="638.0" x2="1300" y2="638.0" class="grid" />
+  <text x="90" y="643.0" text-anchor="end" class="tick-label">619</text>
+  <line x1="100" y1="576.0" x2="1300" y2="576.0" class="grid" />
+  <text x="90" y="581.0" text-anchor="end" class="tick-label">1238</text>
+  <line x1="100" y1="514.0" x2="1300" y2="514.0" class="grid" />
+  <text x="90" y="519.0" text-anchor="end" class="tick-label">1857</text>
+  <line x1="100" y1="452.0" x2="1300" y2="452.0" class="grid" />
+  <text x="90" y="457.0" text-anchor="end" class="tick-label">2476</text>
+  <line x1="100" y1="390.0" x2="1300" y2="390.0" class="grid" />
+  <text x="90" y="395.0" text-anchor="end" class="tick-label">3095</text>
+  <line x1="100" y1="328.0" x2="1300" y2="328.0" class="grid" />
+  <text x="90" y="333.0" text-anchor="end" class="tick-label">3714</text>
+  <line x1="100" y1="265.99999999999994" x2="1300" y2="265.99999999999994" class="grid" />
+  <text x="90" y="270.99999999999994" text-anchor="end" class="tick-label">4333</text>
+  <line x1="100" y1="204.00000000000006" x2="1300" y2="204.00000000000006" class="grid" />
+  <text x="90" y="209.00000000000006" text-anchor="end" class="tick-label">4952</text>
+  <line x1="100" y1="142.0" x2="1300" y2="142.0" class="grid" />
+  <text x="90" y="147.0" text-anchor="end" class="tick-label">5571</text>
+  <line x1="100" y1="80.0" x2="1300" y2="80.0" class="grid" />
+  <text x="90" y="85.0" text-anchor="end" class="tick-label">6190</text>
+  <text x="100.0" y="725" text-anchor="middle" class="tick-label">2020年01月</text>
+  <text x="162.0689655172414" y="725" text-anchor="middle" class="tick-label">2020年04月</text>
+  <text x="224.13793103448276" y="725" text-anchor="middle" class="tick-label">2020年07月</text>
+  <text x="286.2068965517242" y="725" text-anchor="middle" class="tick-label">2020年10月</text>
+  <text x="348.2758620689655" y="725" text-anchor="middle" class="tick-label">2021年01月</text>
+  <text x="410.3448275862069" y="725" text-anchor="middle" class="tick-label">2021年04月</text>
+  <text x="472.4137931034483" y="725" text-anchor="middle" class="tick-label">2021年07月</text>
+  <text x="534.4827586206897" y="725" text-anchor="middle" class="tick-label">2021年10月</text>
+  <text x="596.551724137931" y="725" text-anchor="middle" class="tick-label">2022年01月</text>
+  <text x="658.6206896551724" y="725" text-anchor="middle" class="tick-label">2022年04月</text>
+  <text x="720.6896551724138" y="725" text-anchor="middle" class="tick-label">2022年07月</text>
+  <text x="782.7586206896552" y="725" text-anchor="middle" class="tick-label">2022年10月</text>
+  <text x="844.8275862068966" y="725" text-anchor="middle" class="tick-label">2023年01月</text>
+  <text x="906.8965517241379" y="725" text-anchor="middle" class="tick-label">2023年04月</text>
+  <text x="968.9655172413793" y="725" text-anchor="middle" class="tick-label">2023年07月</text>
+  <text x="1031.0344827586207" y="725" text-anchor="middle" class="tick-label">2023年10月</text>
+  <text x="1093.103448275862" y="725" text-anchor="middle" class="tick-label">2024年01月</text>
+  <text x="1155.1724137931035" y="725" text-anchor="middle" class="tick-label">2024年04月</text>
+  <text x="1217.2413793103449" y="725" text-anchor="middle" class="tick-label">2024年07月</text>
+  <text x="1279.3103448275863" y="725" text-anchor="middle" class="tick-label">2024年10月</text>
+  <line x1="100" y1="80" x2="100" y2="700" class="axis" />
+  <line x1="100" y1="700" x2="1300" y2="700" class="axis" />
+  <line x1="100" y1="700.0" x2="1300" y2="700.0" class="axis" />
+  <text x="700.0" y="780" text-anchor="middle" class="axis-label">Year-Month</text>
+  <text x="30" y="400.0" text-anchor="middle" class="axis-label">Amount (Billion Yen)</text>
+  <rect x="91.86440677966101" y="430.12556627611656" width="16.271186440677965" height="269.87443372388344" class="bar-positive" />
+  <rect x="112.55406195207482" y="425.04701465047594" width="16.271186440677965" height="274.95298534952406" class="bar-positive" />
+  <rect x="133.2437171244886" y="309.5224862510421" width="16.271186440677965" height="390.4775137489579" class="bar-positive" />
+  <rect x="153.9333722969024" y="408.19864416856774" width="16.271186440677965" height="291.80135583143226" class="bar-positive" />
+  <rect x="174.62302746931618" y="411.6644801892218" width="16.271186440677965" height="288.3355198107782" class="bar-positive" />
+  <rect x="195.31268264172996" y="425.1471833215931" width="16.271186440677965" height="274.8528166784069" class="bar-positive" />
+  <rect x="216.00233781414377" y="376.50527662709464" width="16.271186440677965" height="323.49472337290536" class="bar-positive" />
+  <rect x="236.69199298655758" y="398.58245174131923" width="16.271186440677965" height="301.41754825868077" class="bar-positive" />
+  <rect x="257.38164815897136" y="429.0237108938277" width="16.271186440677965" height="270.9762891061723" class="bar-positive" />
+  <rect x="278.0713033313852" y="394.625789232191" width="16.271186440677965" height="305.374210767809" class="bar-positive" />
+  <rect x="298.7609585037989" y="334.5045528276646" width="16.271186440677965" height="365.4954471723354" class="bar-positive" />
+  <rect x="319.45061367621275" y="376.6555296337704" width="16.271186440677965" height="323.3444703662296" class="bar-positive" />
+  <rect x="340.14026884862653" y="407.34721046407174" width="16.271186440677965" height="292.65278953592826" class="bar-positive" />
+  <rect x="360.8299240210403" y="411.8948681327913" width="16.271186440677965" height="288.1051318672087" class="bar-positive" />
+  <rect x="381.51957919345415" y="304.6442719676358" width="16.271186440677965" height="395.3557280323642" class="bar-positive" />
+  <rect x="402.2092343658679" y="381.29333910649547" width="16.271186440677965" height="318.70666089350453" class="bar-positive" />
+  <rect x="422.8988895382817" y="506.26377319227856" width="16.271186440677965" height="193.73622680772144" class="bar-positive" />
+  <rect x="443.5885447106955" y="482.5438318717324" width="16.271186440677965" height="217.45616812826762" class="bar-positive" />
+  <rect x="464.2781998831093" y="356.28122192853766" width="16.271186440677965" height="343.71877807146234" class="bar-positive" />
+  <rect x="484.96785505552305" y="355.4598388253769" width="16.271186440677965" height="344.5401611746231" class="bar-positive" />
+  <rect x="505.6575102279368" y="414.1486632329277" width="16.271186440677965" height="285.8513367670723" class="bar-positive" />
+  <rect x="526.3471654003507" y="439.5414213611307" width="16.271186440677965" height="260.4585786388693" class="bar-positive" />
+  <rect x="547.0368205727646" y="404.4623527358972" width="16.271186440677965" height="295.5376472641028" class="bar-positive" />
+  <rect x="567.7264757451783" y="357.78375199529523" width="16.271186440677965" height="342.21624800470477" class="bar-positive" />
+  <rect x="588.4161309175921" y="373.0093900051053" width="16.271186440677965" height="326.9906099948947" class="bar-positive" />
+  <rect x="609.1057860900058" y="373.2297610815631" width="16.271186440677965" height="326.7702389184369" class="bar-positive" />
+  <rect x="629.7954412624197" y="369.52352025022776" width="16.271186440677965" height="330.47647974977224" class="bar-positive" />
+  <rect x="650.4850964348335" y="369.2530648382114" width="16.271186440677965" height="330.7469351617886" class="bar-positive" />
+  <rect x="671.1747516072473" y="351.3328895753494" width="16.271186440677965" height="348.6671104246506" class="bar-positive" />
+  <rect x="691.8644067796611" y="344.2509645273654" width="16.271186440677965" height="355.7490354726346" class="bar-positive" />
+  <rect x="712.5540619520749" y="279.421800580332" width="16.271186440677965" height="420.578199419668" class="bar-positive" />
+  <rect x="733.2437171244886" y="380.421871667776" width="16.271186440677965" height="319.578128332224" class="bar-positive" />
+  <rect x="753.9333722969025" y="257.82543508746977" width="16.271186440677965" height="442.17456491253023" class="bar-positive" />
+  <rect x="774.6230274693163" y="345.6633427901175" width="16.271186440677965" height="354.3366572098825" class="bar-positive" />
+  <rect x="795.31268264173" y="373.7806887727076" width="16.271186440677965" height="326.2193112272924" class="bar-positive" />
+  <rect x="816.0023378141439" y="335.7967286850761" width="16.271186440677965" height="364.2032713149239" class="bar-positive" />
+  <rect x="836.6919929865577" y="296.2401204609051" width="16.271186440677965" height="403.7598795390949" class="bar-positive" />
+  <rect x="857.3816481589715" y="306.85799959932524" width="16.271186440677965" height="393.14200040067476" class="bar-positive" />
+  <rect x="878.0713033313851" y="204.0649092988839" width="16.271186440677965" height="495.9350907011161" class="bar-positive" />
+  <rect x="898.760958503799" y="364.72544090371525" width="16.271186440677965" height="335.27455909628475" class="bar-positive" />
+  <rect x="919.4506136762128" y="329.5061361389178" width="16.271186440677965" height="370.4938638610822" class="bar-positive" />
+  <rect x="940.1402688486265" y="350.59164140908234" width="16.271186440677965" height="349.40835859091766" class="bar-positive" />
+  <rect x="960.8299240210404" y="344.5815211420521" width="16.271186440677965" height="355.4184788579479" class="bar-positive" />
+  <rect x="981.5195791934542" y="260.97073136054905" width="16.271186440677965" height="439.02926863945095" class="bar-positive" />
+  <rect x="1002.2092343658679" y="303.91304066848045" width="16.271186440677965" height="396.08695933151955" class="bar-positive" />
+  <rect x="1022.8988895382818" y="292.7242001046924" width="16.271186440677965" height="407.2757998953076" class="bar-positive" />
+  <rect x="1043.5885447106955" y="267.99255520586274" width="16.271186440677965" height="432.00744479413726" class="bar-positive" />
+  <rect x="1064.2781998831094" y="234.51618531850403" width="16.271186440677965" height="465.48381468149597" class="bar-positive" />
+  <rect x="1084.9678550555232" y="209.2035621271948" width="16.271186440677965" height="490.7964378728052" class="bar-positive" />
+  <rect x="1105.6575102279369" y="140.1673139932402" width="16.271186440677965" height="559.8326860067598" class="bar-positive" />
+  <rect x="1126.3471654003506" y="118.75125210838894" width="16.271186440677965" height="581.2487478916111" class="bar-positive" />
+  <rect x="1147.0368205727646" y="246.0355824969787" width="16.271186440677965" height="453.9644175030213" class="bar-positive" />
+  <rect x="1167.7264757451783" y="278.02945605180327" width="16.271186440677965" height="421.97054394819673" class="bar-positive" />
+  <rect x="1188.4161309175922" y="217.1970220823451" width="16.271186440677965" height="482.8029779176549" class="bar-positive" />
+  <rect x="1209.105786090006" y="345.7635114612347" width="16.271186440677965" height="354.2364885387653" class="bar-positive" />
+  <rect x="1229.7954412624197" y="190.4119194256134" width="16.271186440677965" height="509.5880805743866" class="bar-positive" />
+  <rect x="1250.4850964348336" y="254.27946412992202" width="16.271186440677965" height="445.720535870078" class="bar-positive" />
+  <rect x="1271.1747516072473" y="128.38747826986082" width="16.271186440677965" height="571.6125217301392" class="bar-positive" />
+  <rect x="1291.864406779661" y="287.27502439591825" width="16.271186440677965" height="412.72497560408175" class="bar-positive" />
+  <rect x="1310" y="70" width="20" height="15" class="bar-positive" />
+  <text x="1335" y="85" text-anchor="start" class="legend-text">Net Outflow</text>
+  <rect x="1310" y="95" width="20" height="15" class="bar-negative" />
+  <text x="1335" y="110" text-anchor="start" class="legend-text">Net Inflow</text>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "name": "securities-investment-charts",
+  "version": "1.0.0",
+  "description": "Generate PNG charts from HTML using Puppeteer",
+  "main": "html_to_png.js",
+  "scripts": {
+    "generate": "node html_to_png.js"
+  },
+  "keywords": ["chart", "png", "puppeteer"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}

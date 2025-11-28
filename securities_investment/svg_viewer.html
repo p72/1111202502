@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>証券投資グラフ - SVG Viewer</title>
+    <style>
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .chart-section {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .chart-section h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .download-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>証券投資グラフ - SVG ビューア</h1>
+
+        <div class="instructions">
+            <h3>📥 PNG画像として保存する方法</h3>
+            <ol>
+                <li><strong>方法1（推奨）</strong>: 各グラフを右クリック → 「名前を付けて画像を保存」でSVG形式で保存できます</li>
+                <li><strong>方法2</strong>: ブラウザのスクリーンショット機能を使用
+                    <ul>
+                        <li>Chrome/Edge: F12 → Ctrl+Shift+P → "Capture screenshot" と入力</li>
+                        <li>Firefox: Shift+F2 → ":screenshot --fullpage" と入力</li>
+                    </ul>
+                </li>
+                <li><strong>方法3</strong>: 各グラフの下の「PNG形式でダウンロード」ボタンをクリック（ブラウザがCanvas APIをサポートしている場合）</li>
+                <li><strong>方法4</strong>: ローカル環境でmatplotlibを使用:
+                    <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">pip install matplotlib
+python3 generate_png_charts.py</pre>
+                </li>
+            </ol>
+        </div>
+
+        <div class="chart-section">
+            <h2>グラフ1: 証券投資の推移（対外・対内）</h2>
+            <object id="chart1" data="securities_investment_outward_inward.svg" type="image/svg+xml" style="width:100%; max-width:1400px; height:800px;">
+                SVGを表示できません
+            </object>
+            <div class="download-buttons">
+                <button class="btn" onclick="downloadSVGAsPNG('chart1', 'securities_investment_outward_inward.png')">
+                    📥 PNG形式でダウンロード
+                </button>
+                <a href="securities_investment_outward_inward.svg" download class="btn" style="background-color:#28a745;">
+                    📥 SVG形式でダウンロード
+                </a>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <h2>グラフ2: ネット証券投資の推移</h2>
+            <object id="chart2" data="securities_investment_net.svg" type="image/svg+xml" style="width:100%; max-width:1400px; height:800px;">
+                SVGを表示できません
+            </object>
+            <div class="download-buttons">
+                <button class="btn" onclick="downloadSVGAsPNG('chart2', 'securities_investment_net.png')">
+                    📥 PNG形式でダウンロード
+                </button>
+                <a href="securities_investment_net.svg" download class="btn" style="background-color:#28a745;">
+                    📥 SVG形式でダウンロード
+                </a>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>ℹ️ ファイル情報</h3>
+            <p><strong>利用可能なファイル:</strong></p>
+            <ul>
+                <li><code>securities_investment_outward_inward.svg</code> - 対外・対内証券投資グラフ（SVG形式）</li>
+                <li><code>securities_investment_net.svg</code> - ネット証券投資グラフ（SVG形式）</li>
+                <li><code>securities_investment_chart.html</code> - Chart.jsインタラクティブグラフ</li>
+                <li><code>generate_png_charts.py</code> - matplotlib用PNG生成スクリプト（ローカル環境用）</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function downloadSVGAsPNG(objectId, filename) {
+            try {
+                // SVG ObjectからSVGドキュメントを取得
+                const svgObject = document.getElementById(objectId);
+                const svgDoc = svgObject.contentDocument;
+
+                if (!svgDoc) {
+                    alert('SVGドキュメントを取得できませんでした。ブラウザのセキュリティ設定を確認してください。');
+                    return;
+                }
+
+                const svg = svgDoc.documentElement;
+                const svgData = new XMLSerializer().serializeToString(svg);
+
+                // Canvasを作成
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+
+                // SVGのサイズを取得
+                const svgWidth = parseInt(svg.getAttribute('width') || 1400);
+                const svgHeight = parseInt(svg.getAttribute('height') || 800);
+
+                // 高解像度用にスケール
+                const scale = 2;
+                canvas.width = svgWidth * scale;
+                canvas.height = svgHeight * scale;
+                ctx.scale(scale, scale);
+
+                // 背景を白に
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, svgWidth, svgHeight);
+
+                // SVGをImageに変換
+                const img = new Image();
+                const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0);
+                    URL.revokeObjectURL(url);
+
+                    // PNGとしてダウンロード
+                    canvas.toBlob(function(blob) {
+                        const link = document.createElement('a');
+                        link.download = filename;
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    }, 'image/png');
+                };
+
+                img.onerror = function() {
+                    alert('SVG画像の読み込みに失敗しました。代わりに右クリックで画像を保存してください。');
+                    URL.revokeObjectURL(url);
+                };
+
+                img.src = url;
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('PNG変換に失敗しました。代わりにブラウザのスクリーンショット機能を使用してください。\n\nエラー: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>
